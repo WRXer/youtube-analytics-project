@@ -46,6 +46,8 @@ class Channel:
         """
         if self.subscriber_count >= other.subscriber_count:
             return True
+        else:
+            return False
 
     def print_info(self) -> None:
         """Выводит в консоль информацию о канале."""

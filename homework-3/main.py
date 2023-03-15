@@ -10,4 +10,4 @@ if __name__ == '__main__':
     print(vdud + redactsiya)  # 13970000
     print(vdud - redactsiya)  # 6630000
     print(redactsiya - vdud)  # -6630000
-    print(vdud >= redactsiya)  # True
+    print(redactsiya >= vdud)  # True
