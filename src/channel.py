@@ -18,9 +18,34 @@ class Channel:
         self.title = self.channel["items"][0]["snippet"]["title"]
         self.description = self.channel["items"][0]["snippet"]['description']
         self.url = f"https://www.youtube.com/channel/{self.channel['items'][0]['id']}"
-        self.subscriber_count = self.channel["items"][0]['statistics']['subscriberCount']
+        self.subscriber_count = int(self.channel["items"][0]['statistics']['subscriberCount'])
         self.video_count = self.channel["items"][0]['statistics']['videoCount']
         self.view_count = self.channel["items"][0]['statistics']['viewCount']
+
+    def __str__(self):
+        """
+        Функция метода отображения информации об объекте класса для пользователей
+        """
+        return f"'{self.title} ({self.url})'"
+
+    def __add__(self, other):
+        """
+        Функция метода сложения
+        """
+        return self.subscriber_count + other.subscriber_count
+
+    def __sub__(self, other):
+        """
+        Функция метода вычитания
+        """
+        return self.subscriber_count - other.subscriber_count
+
+    def __ge__(self, other):
+        """
+        Функция метода сравнений
+        """
+        if self.subscriber_count >= other.subscriber_count:
+            return True
 
     def print_info(self) -> None:
         """Выводит в консоль информацию о канале."""
