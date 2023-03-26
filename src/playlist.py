@@ -6,7 +6,7 @@ from datetime import timedelta, datetime
 import isodate
 
 
-class PlayList(Video):
+class PlayList:
     api_key: str = os.getenv('API_KEY')
     youtube = build('youtube', 'v3', developerKey=api_key)
     def __init__(self, playlist_id):
